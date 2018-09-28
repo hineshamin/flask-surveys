@@ -33,7 +33,6 @@ def question(question_num):
         selection = request.form.get("selection")
         comments = request.form.get("comments", "N/A")
         answer = (selection, comments)
-        print(answer)
         answers = session[survey_picked]
         answers[question_num-1] = answer
         session[survey_picked] = answers
@@ -60,6 +59,7 @@ def thanks():
     surveys_taken[survey_picked] = 0
     html = render_template('thanks.html')
     resp = make_response(html)
-    resp.set_cookie('surveys_taken', json.dumps(surveys_taken))
+    resp.set_cookie('surveys_taken', json.dumps(
+        surveys_taken), max_age=31536000)
 
     return resp
