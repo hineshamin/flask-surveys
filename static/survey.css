@@ -1,0 +1,23 @@
+h1,
+h3 {
+  text-align: center;
+}
+
+div {
+  display: flex;
+  justify-content: center;
+}
+
+legend {
+  background-color: #000;
+  color: #fff;
+  padding: 3px 6px;
+}
+
+.output {
+  font: 1rem 'Fira Sans', sans-serif;
+}
+
+input {
+  margin: 0.4rem;
+}

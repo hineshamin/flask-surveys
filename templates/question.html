@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+  {% block title %}Question{% endblock %}
+
+  {% block body %}
+  <form action='/questions/{{next_id}}', method="POST">
+    <fieldset>
+      <legend>{{question}}</legend>
+      {% for choice in choices %}
+      <input type="radio" id="{{choice}}" value="{{choice}}" name="selection">
+      <label for="{{choice}}">{{choice}}</label><br />
+      {% endfor %}
+      {% if textbox %}
+      <br>
+      <section>
+          <label for="comments">Comments:</label>
+          <br>
+          <textarea id="comments" name="comments"></textarea>
+      </section>
+      {% endif %}
+      <button type = "submit">Next Question</button>
+    </fieldset>
+  </form>
+  
+  {% endblock %}
